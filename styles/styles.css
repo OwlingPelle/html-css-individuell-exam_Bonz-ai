@@ -3,8 +3,382 @@
 	margin: 0;
 	padding: 0;
 }
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 
-/* MODIFIERS */
-
---green_btn {
+.wrapper {
+	max-width: 1440px;
+	margin: 0 auto;
 }
+
+/* COLORS */
+
+:root {
+	--dark-green: #009966;
+	--medium-green: #88dc84;
+	--light-green: #d4fff3;
+	--gradient-green1: #009966cc;
+	--gradient-green2: #009688;
+	--footer-blue: #101828;
+	--text-black: #000;
+	--text-white: #fff;
+	--text-grey: #393939;
+	--grey: #d9d9d9;
+	--button-grey: #cbcbcb;
+}
+
+/* COLOR UTILITY CLASSES */
+.bg-footer-blue {
+	background-color: var(--footer-blue);
+}
+
+/* TEXT SETTINGS */
+p {
+	font-family: "Inter", sans-serif;
+	font-weight: 400;
+	font-size: 1.25rem;
+}
+a {
+	font-family: "Inter", sans-serif;
+	font-weight: 600;
+	font-size: 1.5rem;
+	text-decoration: none;
+}
+
+/* LINK EFFECTS */
+
+button,
+a:hover {
+	transform: scale(1.02);
+	transition: transform 0.1s ease-in-out;
+}
+button,
+a:active {
+	transform: scale(1);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+	font-family: "Inter", sans-serif;
+	font-weight: 400;
+}
+h1 {
+	font-size: 5rem;
+}
+h2 {
+	font-size: 3rem;
+}
+h3 {
+	font-size: 2.25rem;
+}
+h4 {
+	font-size: 2rem;
+}
+h5 {
+	font-size: 1.75rem;
+}
+nav > ul {
+	display: flex;
+	justify-content: space-between;
+	align-items: baseline;
+	list-style-type: none;
+}
+
+/* SECTIONS */
+
+/* -------------------- HEADER --------------------  */
+.header {
+	background-color: white;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0rem 6.5rem;
+
+	.header__logo {
+		width: 322px;
+		padding: 2rem 0rem;
+	}
+}
+
+.header__link {
+	color: var(--text-black);
+	padding: 2.5rem;
+}
+
+/* -------------------- HERO --------------------  */
+.hero {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	background-color: rgba(0, 0, 0, 1);
+
+	.hero__img {
+		width: 100%;
+		opacity: 40%;
+		position: relative;
+		z-index: 0;
+	}
+
+	.hero__content {
+		display: flex;
+		flex-direction: column;
+		max-width: 1200px;
+		color: var(--text-white);
+		position: absolute;
+		gap: 2rem;
+
+		.hero__links {
+			justify-content: space-between;
+			.hero__link-item {
+				margin: 0.5rem;
+			}
+		}
+	}
+}
+/* -------------------- MAIN --------------------  */
+.main {
+	text-align: center;
+	padding: 4rem 6.5rem 6rem 6.5rem;
+
+	.main__text {
+		padding: 3rem 6.5rem 4rem 6.5rem;
+	}
+	.main__title {
+		padding-top: 2rem;
+	}
+
+	.main__sub-title {
+		color: var(--text-white);
+		padding: 3rem 6.5rem 4rem 6.5rem;
+	}
+
+	.usp-card {
+		display: flex;
+		gap: 2rem;
+
+		.usp-card__item {
+			background-color: white;
+			display: flex;
+			flex-direction: column;
+			justify-content: baseline;
+			border: 2px solid;
+			border-color: var(--grey);
+			border-radius: 1.5rem;
+			padding: 1rem 1rem 2.5rem 1rem;
+			text-align: left;
+			gap: 2rem;
+
+			.usp-card__icon {
+				width: 64px;
+				aspect-ratio: 1;
+				background-color: var(--medium-green);
+				border-radius: 50%;
+				padding: 1rem;
+			}
+			.usp-card__title {
+				margin-top: 0.5rem;
+			}
+		}
+	}
+}
+
+.main-article {
+	display: flex;
+	padding: 6.5rem;
+
+	.main-article__left {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		padding-right: 5rem;
+	}
+
+	.main-article__text {
+		line-height: 2rem;
+		letter-spacing: 1px;
+	}
+
+	.main-article__img {
+		max-width: 614px;
+		aspect-ratio: 1;
+		border-radius: 1.5rem;
+	}
+}
+
+/* -------------------- FOOTER --------------------  */
+.footer {
+	color: var(--text-white);
+	padding: 6.5rem;
+
+	/* li,
+	p {
+		font-size: 1rem;
+	} */
+
+	.footer__top {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+
+		p,
+		li {
+			font-size: 1rem;
+			text-decoration: none;
+		}
+		.footer__left {
+			grid-column: span 2;
+			.footer__payoff {
+				padding-top: 1.5rem;
+				padding-right: 5rem;
+			}
+		}
+		.footer__logo {
+			width: 166px;
+		}
+
+		.contact__title,
+		.links__title {
+			padding-top: 3rem;
+			padding-bottom: 2rem;
+		}
+		.contact__item,
+		.links__item {
+			font-family: "Inter", sans-serif;
+			font-weight: 400;
+			text-decoration: none;
+			list-style-type: none;
+			line-height: 2rem;
+		}
+		.links__item {
+			cursor: pointer;
+		}
+	}
+
+	.footer__line {
+		border: 1px solid white;
+		margin-top: 3rem;
+		margin-bottom: 3rem;
+	}
+	.footer__copywright {
+		text-align: center;
+		font-size: 1.5rem;
+	}
+}
+/* -------------------------- BOOKING.HTML --------------------------*/
+
+.page-top {
+	text-align: center;
+	box-shadow: inset 0 8px 8px -8px rgba(0, 0, 0, 0.5);
+	.page-top__title {
+		padding: 4rem 0rem 1.5rem 0rem;
+	}
+	.page-top__sub-title {
+		padding-bottom: 2rem;
+	}
+}
+
+/* -------------------- MODIFIERS --------------------  */
+/* -------------------- MODIFIERS --------------------  */
+/* -------------------- MODIFIERS --------------------  */
+/* -------------------- MODIFIERS --------------------  */
+
+.main__text--text-large {
+	font-family: "Montserrat", sans-serif;
+	font-weight: 400;
+	font-size: 1.5rem;
+}
+
+.header__link--green-bg,
+.hero__link-item--green-bg,
+.main-article__link-item--green-bg {
+	display: inline-block;
+	background-color: var(--dark-green);
+	color: var(--text-white);
+	border-radius: 10px;
+	padding: 1.2rem 1rem;
+	align-self: flex-start;
+}
+
+.main_link--grey-green-text {
+	display: inline-block;
+	background-color: var(--button-grey);
+	color: var(--dark-green);
+	border-radius: 10px;
+	padding: 1.2rem 2rem;
+	align-self: flex-start;
+}
+
+.header__link--active {
+	color: #009688;
+}
+
+.hero__link-item--outlined {
+	display: inline-block;
+	border: 2px solid white;
+	color: var(--text-white);
+	border-radius: 10px;
+	padding: 1.2rem 1rem;
+}
+
+.main--light-green-bg {
+	background-color: var(--light-green);
+}
+
+.usp-card__item--centered {
+	align-items: center;
+	.usp-card__text {
+		text-align: center;
+	}
+}
+.usp-card__title--green {
+	color: var(--dark-green);
+}
+
+.main-article__text--text-gray {
+	color: var(--text-grey);
+}
+
+.main__title--white {
+	color: var(--text-white);
+}
+
+.main--gradient-bg {
+	background: linear-gradient(
+		to right,
+		var(--gradient-green1),
+		var(--gradient-green2)
+	);
+}
+
+/* -------------------- MODIFIERS BOOKING.HTML --------------------*/
+/* -------------------- MODIFIERS BOOKING.HTML --------------------*/
+/* -------------------- MODIFIERS BOOKING.HTML --------------------*/
+/* -------------------- MODIFIERS BOOKING.HTML --------------------*/
+
+.wrapper--light-green-bg {
+	background-color: var(--light-green);
+}
+.header--dropshadow {
+	background-color: white;
+	box-shadow: 0px 4px 4px 0px #00000040;
+}
+
+/* 
+Buttons:
+nav__link--green
+hero_link--outlined
+main_link--grey-green-text
+
+Text:
+--text-large (24px = 1.5rem)
+--text-gray (#393939)
+
+Cards, centered content:
+--centered
+
+Background color:
+--light-green-bg
+--medium-green-bg
+*/
