@@ -17,16 +17,39 @@
 		<section class="wrapper">
 			<!-- HEADER SECTION -->
 			<header class="header">
-				<img
-					src="./assets/assets/logo/bonz.ai-logo-color-landscape.png"
-					alt="Company logo"
-					class="header__logo"
+				<a
+					href="./index.html"
+					class="header__logo-link"
+				>
+					<img
+						src="./assets/logo/bonz.ai-logo-color-landscape.png"
+						alt="Company logo"
+						class="header__logo"
+				/></a>
+
+				<!-- BURGER MENU -->
+				<input
+					type="checkbox"
+					class="header__burger-checkbox"
+					id="burger"
 				/>
+				<label
+					for="burger"
+					class="header__burger-btn"
+				>
+					<img
+						class="header__burger-icon"
+						src="./assets/lucide/menu.svg"
+						alt="Menu icon"
+					/>
+					<span></span>
+				</label>
+
 				<nav class="header__nav">
 					<ul class="header__menu">
 						<li class="header__list-item">
 							<a
-								href="./home.html"
+								href="./index.html"
 								class="header__link header__link--active"
 								>Home</a
 							>
@@ -59,7 +82,7 @@
 			<!-- HERO SECTION -->
 			<section class="hero">
 				<img
-					src="./assets/assets/photos/photo-1748741426070-f11ac876e7dd.jpeg"
+					src="./assets/photos/photo-1748741426070-f11ac876e7dd.jpeg"
 					alt="Aerial view of a hotel complex by the ocean beach"
 					class="hero__img"
 				/>
@@ -84,19 +107,20 @@
 				</section>
 			</section>
 
-			<!-- OUR VISION SECTION -->
+			<!-- MAIN - OUR VISION SECTION -->
 			<section class="main">
 				<h2 class="main__title">Our vision</h2>
-				<p class="main__text main__text--text-large">
+				<p class="main__intro-text">
 					Bonz.ai reimagines the hotel experience by harmonizing cutting-edge
 					artificial intelligence with unwavering environmental stewardship. We
 					believe the future of travel is both smart and sustainable.
 				</p>
+
 				<!-- USP CARDS 1 -->
 				<section class="usp-card">
 					<section class="usp-card__item">
 						<img
-							src="./assets/assets/lucide/brain.svg"
+							src="./assets/lucide/brain.svg"
 							alt="Illustration of a human brain"
 							class="usp-card__icon"
 						/>
@@ -108,7 +132,7 @@
 					</section>
 					<section class="usp-card__item">
 						<img
-							src="./assets/assets/lucide/leaf.svg"
+							src="./assets/lucide/leaf.svg"
 							alt="Illustration of a leaf"
 							class="usp-card__icon"
 						/>
@@ -120,7 +144,7 @@
 					</section>
 					<section class="usp-card__item">
 						<img
-							src="./assets/assets/lucide/sparkles.svg"
+							src="./assets/lucide/sparkles.svg"
 							alt="Illustration of sparkling stars"
 							class="usp-card__icon"
 						/>
@@ -132,7 +156,7 @@
 					</section>
 					<section class="usp-card__item">
 						<img
-							src="./assets/assets/lucide/zap.svg"
+							src="./assets/lucide/zap.svg"
 							alt="Illustration of a lightning"
 							class="usp-card__icon"
 						/>
@@ -145,17 +169,18 @@
 				</section>
 			</section>
 
-			<!-- SUSTAINABILITY SECTION -->
+			<!-- MAIN - SUSTAINABILITY SECTION -->
 			<section class="main main--light-green-bg">
 				<h2 class="main__title">Sustainablility by the Numbers</h2>
 				<p class="main__text main__text--text-large">
 					Our commitment to the planet, measured and verified
 				</p>
+
 				<!-- USP CARDS 2 > CENTERED CONTENT -->
 				<section class="usp-card">
 					<section class="usp-card__item usp-card__item--centered">
 						<img
-							src="./assets/assets/lucide/droplet.svg"
+							src="./assets/lucide/droplet.svg"
 							alt="Illustration of a water drop"
 							class="usp-card__icon"
 						/>
@@ -168,7 +193,7 @@
 
 					<section class="usp-card__item usp-card__item--centered">
 						<img
-							src="./assets/assets/lucide/battery.svg"
+							src="./assets/lucide/battery.svg"
 							alt="Illustration of a battery"
 							class="usp-card__icon"
 						/>
@@ -180,7 +205,7 @@
 					</section>
 					<section class="usp-card__item usp-card__item--centered">
 						<img
-							src="./assets/assets/lucide/wind.svg"
+							src="./assets/lucide/wind.svg"
 							alt="Illustration of wind blowing"
 							class="usp-card__icon"
 						/>
@@ -192,7 +217,7 @@
 					</section>
 					<section class="usp-card__item usp-card__item--centered">
 						<img
-							src="./assets/assets/lucide/recycle.svg"
+							src="./assets/lucide/recycle.svg"
 							alt="Recycling icon"
 							class="usp-card__icon"
 						/>
@@ -205,7 +230,7 @@
 				</section>
 			</section>
 
-			<!-- MAIN ARTICLE  -->
+			<!-- MAIN - ARTICLE  -->
 			<article class="main-article">
 				<section class="main-article__left">
 					<h2 class="main-article__title">Your AI-Enhanced Stay</h2>
@@ -241,11 +266,13 @@
 					>
 				</section>
 				<img
-					src="./assets/assets/photos/photo-1578683010236-d716f9a3f461.jpeg"
+					src="./assets/photos/photo-1578683010236-d716f9a3f461.jpeg"
 					alt="Hotel room interior"
 					class="main-article__img"
 				/>
 			</article>
+
+			<!-- MAIN - CTA-SECTION -->
 			<section class="main main--gradient-bg">
 				<h2 class="main__title main__title--white">
 					Ready to Transform Your Stay?
@@ -260,12 +287,13 @@
 					>Book now</a
 				>
 			</section>
+
 			<!-- FOOTER -->
 			<footer class="footer bg-footer-blue">
 				<section class="footer__top">
 					<section class="footer__left">
 						<img
-							src="./assets/assets/logo/bonz.ai-logo-color-portrait-full.png"
+							src="./assets/logo/bonz.ai-logo-color-portrait-full.png"
 							alt="Company logo"
 							class="footer__logo"
 						/>
@@ -282,7 +310,12 @@
 								123 Green Street, Eco City, EC 12345
 							</li>
 							<li class="contact__item">+1 (555) 123-4567</li>
-							<li class="contact__item">hello@bonz.ai</li>
+							<li class="contact__item contact__item--email">
+								<a
+									href="mailto:hello@bonz.ai?subject=Inquiry&body=Hi, I%20would%20like%20to%20know%20more%20about%20your%20hotel."
+									>hello@bonz.ai</a
+								>
+							</li>
 						</ul>
 					</section>
 					<section class="links">
