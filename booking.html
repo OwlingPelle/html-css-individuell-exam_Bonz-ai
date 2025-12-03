@@ -11,11 +11,15 @@
 			rel="stylesheet"
 			href="./styles/styles.css"
 		/>
+		<!-- Nedan förhindrar att telefonnummer visas som svart i footern -->
+		<meta
+			name="format-detection"
+			content="telephone=no"
+		/>
 	</head>
 	<body>
 		<section class="wrapper wrapper--light-green-bg">
-			
-			<!-- HEADER SECTION -->
+			<!-- HEADER  -->
 			<header class="header">
 				<a
 					href="./index.html"
@@ -27,7 +31,7 @@
 						class="header__logo"
 				/></a>
 
-				<!-- BURGER MENU -->
+				<!-- BURGER MENU (MOBILE) -->
 				<input
 					type="checkbox"
 					class="header__burger-checkbox"
@@ -45,6 +49,7 @@
 					<span></span>
 				</label>
 
+				<!-- HEADER NAV -->
 				<nav class="header__nav">
 					<ul class="header__menu">
 						<li class="header__list-item">
@@ -78,6 +83,7 @@
 					</ul>
 				</nav>
 			</header>
+
 			<!-- PAGE TOP -->
 			<section class="page-top">
 				<h1 class="page-top__title">Book Your Stay</h1>
@@ -272,7 +278,6 @@
 
 				<!-- ROOM CARD WRAPPER -->
 				<section class="roomcards__wrapper">
-					
 					<!-- ROOM CARD 1 - EcoSmart Suite -->
 					<section class="roomcards__item">
 						<section class="roomcards__left">
@@ -823,21 +828,26 @@
 					</section>
 				</section>
 			</section>
+
 			<!-- FOOTER -->
 			<footer class="footer bg-footer-blue">
 				<section class="footer__top">
 					<section class="footer__left">
+						<!-- LOGO -->
 						<img
 							src="./assets/logo/bonz.ai-logo-color-portrait-full.png"
 							alt="Company logo"
 							class="footer__logo"
 						/>
+						<!-- PAYOFF -->
 						<p class="footer__payoff">
 							The hotel of the future, where sustainability meets smart
 							technology. Experience AI-driven hospitality with an eco-conscious
 							heart.
 						</p>
 					</section>
+
+					<!-- CONTACT -->
 					<section class="contact">
 						<h4 class="contact__title">Contact</h4>
 						<ul class="contact__list">
@@ -849,9 +859,12 @@
 								<a
 									href="mailto:hello@bonz.ai?subject=Inquiry&body=Hi, I%20would%20like%20to%20know%20more%20about%20your%20hotel."
 									>hello@bonz.ai</a
+								>
 							</li>
 						</ul>
 					</section>
+
+					<!-- QUICK LINKS -->
 					<section class="links">
 						<h4 class="links__title">Quick Links</h4>
 						<ul class="links__list">
@@ -862,6 +875,8 @@
 						</ul>
 					</section>
 				</section>
+
+				<!-- FOOTER BOTOM -->
 				<section class="footer__bottom">
 					<div class="footer__line"></div>
 					<p class="footer__copywright">

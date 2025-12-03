@@ -10,6 +10,11 @@
 	max-width: 1440px;
 	margin: 0 auto;
 }
+html,
+body {
+	width: 100%;
+	overflow-x: hidden; /*förhindrar sidoscroll i mobilvy*/
+}
 
 /* COLORS */
 
@@ -28,6 +33,7 @@
 	--accent-purple: #9810fa;
 	--accent-yellow: #ffcc00;
 	--white: #fff;
+	--black: #000;
 }
 
 /* COLOR UTILITY CLASSES */
@@ -49,7 +55,6 @@ a {
 	text-decoration: none;
 	color: var(--text-black);
 }
-
 h1,
 h2,
 h3,
@@ -87,6 +92,7 @@ nav > ul {
 	font-size: 1.5rem;
 	line-height: 2rem;
 	letter-spacing: 1px;
+	padding: 3rem 5rem 0rem 5rem;
 }
 
 .form__label {
@@ -120,7 +126,15 @@ button {
 	align-self: flex-start;
 }
 
-/* SECTIONS: */
+/* ARROW ANIMATION */
+@keyframes move {
+	0% {
+		transform: translateY(0);
+	}
+	10% {
+		transform: translateY(-5px);
+	}
+}
 
 /* ----------------------------------------------------------------*/
 /* -------------------------- index.html --------------------------*/
@@ -156,17 +170,18 @@ button {
 	justify-content: center;
 	align-items: center;
 	text-align: center;
-	background-color: rgba(0, 0, 0, 1);
+	background-color: var(--black);
 
 	.hero__img {
 		width: 100%;
+		height: 100%;
 		opacity: 40%;
 	}
 
 	.hero__content {
 		display: flex;
 		flex-direction: column;
-		max-width: 1200px;
+		max-width: 100vw;
 		color: var(--text-white);
 		position: absolute;
 		gap: 2rem;
@@ -178,6 +193,9 @@ button {
 			}
 		}
 	}
+	.hero__arrow-down {
+		display: none;
+	}
 }
 
 /* --------------------------- MAIN -----------------------------*/
@@ -185,9 +203,6 @@ button {
 	text-align: center;
 	padding: 4rem 6.5rem 5.5rem 6.5rem;
 
-	.main__intro-text {
-		padding: 3rem 5rem 0rem 5rem;
-	}
 	.main__title {
 		padding-top: 2rem;
 	}
@@ -208,7 +223,7 @@ button {
 			display: flex;
 			flex-direction: column;
 			justify-content: space-between;
-			border: 2px solid var(--grey); /* valde grå  istället för svart = lite snyggare och enhetligt */
+			border: 2px solid var(--grey); /* valde grå istället för svart */
 			border-radius: 1.5rem;
 			padding: 1rem 1rem 2.5rem 1rem;
 			text-align: left;
@@ -256,7 +271,7 @@ button {
 	}
 }
 
-/* --------------------------- FOOTER -----------------------------*/
+/* --------------------------------  FOOTER  ------------------------  */
 .footer {
 	color: var(--text-white);
 	padding: 5rem 6.5rem 10rem 6.5rem;
@@ -264,6 +279,10 @@ button {
 	.footer__top {
 		display: grid;
 		grid-template-columns: repeat(4, 1fr);
+
+		.contact {
+			padding-right: 1rem;
+		}
 
 		p,
 		li {
@@ -315,7 +334,7 @@ button {
 /* -------------------------- booking.html --------------------------*/
 /* ------------------------------------------------------------------*/
 
-/* PAGE TOP */
+/* ---------------------------- PAGE TOP ----------------------------*/
 .page-top {
 	text-align: center;
 	box-shadow: inset 0 8px 8px -8px rgba(0, 0, 0, 0.5);
@@ -479,17 +498,36 @@ button {
 /* -------------------------- about.html --------------------------*/
 /* ----------------------------------------------------------------*/
 
+/* ----------------------------- HERO -----------------------------*/
+.hero {
+	.hero__arrow-down {
+		display: none;
+	}
+}
+
 /* ------------------------- USP SECTION --------------------------*/
 .about-usp {
 	background-color: var(--light-green);
 	padding: 5rem 6.5rem;
 
-	.about-usp__menu {
-		margin: 0rem 14rem 5rem 14rem;
-		padding: 2rem 0.5rem 2rem 3rem;
-		text-align: center;
-		background-color: var(--grey);
-		border-radius: 4rem;
+	.about-usp__nav {
+		display: flex;
+		justify-content: center;
+
+		.about-usp__menu {
+			justify-content: center;
+			margin: 0rem 0rem 5rem 0rem;
+			padding: 1.5rem 0.6rem 1.5rem 1rem;
+			gap: 3rem;
+			padding-inline-start: 1.5rem;
+			background-color: var(--grey);
+			border-radius: 4rem;
+			padding-inline-start: 3rem;
+
+			.about-usp__link--active {
+				padding: 1rem 2.5rem;
+			}
+		}
 	}
 	.about-usp__card-section {
 		margin-top: 7rem;
@@ -695,16 +733,16 @@ button {
 /*/////////////////////     MEDIA QUERIES    ///////////////////////*/
 /*//////////////////////////////////////////////////////////////////*/
 
+/* ---------------------------------------------------------------        Media Query < 1300px*/
 @media (max-width: 1300px) {
-	/* ------------------------- Media queries: general --------------------------*/
-
 	/* Menu change to burger menu */
 	.header {
 		display: flex;
 		justify-content: space-between;
 		position: relative;
-		padding: 0rem 4rem;
+		padding: 0rem 2rem;
 
+		/* Pop-up nav moved to side of vw */
 		.header__nav {
 			background-color: var(--white);
 			flex-direction: column;
@@ -729,7 +767,7 @@ button {
 
 				.header__link {
 					justify-content: left;
-					padding: 0;
+					padding: 2rem 6rem 2rem 0rem;
 				}
 				.header__link--green-bg {
 					padding: 1rem 1rem;
@@ -747,20 +785,21 @@ button {
 		.header__burger-icon {
 			display: flex;
 			align-self: flex-end;
-			width: 4rem;
+			width: 3remq;
 		}
 
+		/* Burger menu active - menu shows */
 		.header__burger-checkbox:checked ~ .header__nav {
 			transform: translateX(0);
 			z-index: 100;
 		}
-
+		/* Burger menu active - green bg */
 		.header__burger-checkbox:checked ~ .header__burger-btn {
 			background-color: var(--dark-green);
 			border-radius: 50%;
 			padding: 0.6rem;
 		}
-
+		/* Burger menu active - inverted icon */
 		.header__burger-checkbox:checked
 			~ .header__burger-btn
 			.header__burger-icon {
@@ -769,7 +808,7 @@ button {
 	}
 
 	.footer {
-		padding: 5rem 4rem 10rem 4rem;
+		padding: 5rem 2rem 10rem 2rem;
 
 		.footer__top {
 			gap: 1rem;
@@ -786,16 +825,12 @@ button {
 		text-align: center;
 		padding: 4rem 4rem 5.5rem 4rem;
 
-		.main__intro-text {
-			padding: 3rem 3rem 0rem 3rem;
-		}
 		.main__title {
 			padding-top: 2rem;
 		}
 
 		.main__sub-title {
-			color: var(--text-white);
-			padding: 2rem 4rem 3rem 4rem;
+			padding: 2rem 2rem 3rem 2rem;
 		}
 	}
 	.main-article {
@@ -803,6 +838,7 @@ button {
 		padding: 4rem;
 		text-align: center;
 		padding: 0;
+
 		.main-article__left {
 			padding: 0;
 		}
@@ -837,20 +873,330 @@ button {
 
 	/* ------------------------- Media queries: booking.html --------------------------*/
 	.form {
+		margin: 4rem 4rem 4rem 4rem;
 		flex-wrap: wrap;
 
 		.form__button {
 			margin-top: 2rem;
 		}
 	}
+	.roomcards {
+		padding: 0rem 2rem 3rem 2rem;
+		.roomcards__item {
+			flex-direction: column;
+
+			.roomcards__left {
+				width: 100%;
+			}
+		}
+	}
 
 	/* ------------------------- Media queries: about.html --------------------------*/
-	.roomcards__item {
+
+	.about-usp {
+		padding: 5rem 2rem;
+		.about-usp__nav {
+			.about-usp__menu {
+				margin: 0rem 8rem 5rem 8rem;
+			}
+		}
+		.about-usp__card-section {
+			margin-top: 4rem;
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+	.main {
+		padding: 5rem;
+	}
+}
+/* ---------------------------------------------------------------        Media Query < 1000px*/
+@media (max-width: 1000px) {
+	h1 {
+		font-size: 3rem;
+	}
+	h2 {
+		font-size: 2rem;
+	}
+	h3 {
+		font-size: 1.5rem;
+	}
+
+	h4 {
+		font-size: 1.5rem;
+	}
+
+	a {
+		font-size: 1rem;
+	}
+
+	.wrapper {
+		padding-top: 4.9rem;
+	}
+
+	.header {
+		position: fixed;
+		width: 100vw;
+		top: 0; /* sticks to the top */
+		z-index: 1000;
+		padding: 0rem 1rem;
+		box-shadow: 0 8px 8px -8px rgba(0, 0, 0, 0.5);
+
+		.header__nav {
+			top: 4.5rem;
+
+			.header__menu {
+				.header__burger-icon {
+					width: 10rem;
+				}
+			}
+		}
+		.header__logo {
+			width: 11rem;
+			padding: 1rem 0rem;
+		}
+	}
+
+	.hero {
+		.hero__img {
+			height: 37rem;
+			object-fit: cover;
+			overflow: hidden;
+		}
+		.hero__content {
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			gap: 1rem;
+			top: 8rem;
+
+			.hero__title,
+			.hero__sub-title {
+				padding: 1rem 2rem;
+			}
+			.hero__arrow-down {
+				display: flex;
+				width: 3rem;
+				position: absolute;
+				z-index: 20;
+				top: 29rem;
+				animation: move 2s ease-out infinite;
+			}
+			.hero__arrow-down--displaced {
+				top: 22rem;
+			}
+		}
+	}
+
+	.main {
+		padding: 2rem 1rem 3rem 1rem;
+
+		.main__intro-text {
+			font-size: 1rem;
+			line-height: 1.5rem;
+			letter-spacing: 0px;
+			padding: 2rem 0rem 0rem 0rem;
+		}
+
+		.main__text {
+			padding: 1rem 1rem;
+		}
+
+		.usp-card {
+			margin-top: 2rem;
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			gap: 0.5rem;
+
+			.usp-card__item {
+				padding: 1rem;
+				gap: 1rem;
+				justify-content: flex-start;
+				align-items: center;
+				text-align: center;
+				.usp-card__icon {
+					width: 40px;
+					padding: 0.5rem;
+				}
+				.usp-card__title {
+					font-size: 1.2rem;
+					margin-top: 0rem;
+				}
+				.usp-card__sub-title {
+					font-size: 1rem;
+					text-align: center;
+				}
+				.usp-card__text {
+					display: none;
+				}
+			}
+		}
+		.main__sub-title {
+			padding: 2rem 0rem 2rem 0rem;
+			font-size: 1.25rem;
+			line-height: 1.5rem;
+			letter-spacing: 0px;
+		}
+	}
+
+	.main-article {
+		.main-article__title {
+			padding: 2rem 0 2rem 0;
+			font-size: 2rem;
+		}
+		.main-article__text {
+			font-size: 1rem;
+			line-height: 1.5rem;
+			letter-spacing: 0px;
+		}
+	}
+
+	.footer {
+		padding: 2rem 1rem 6rem 1rem;
+		.footer__top {
+			display: flex;
+			flex-wrap: wrap;
+			flex-direction: column-reverse;
+			text-align: center;
+
+			.footer__left {
+				display: flex;
+				flex-direction: column;
+
+				.footer__logo {
+					padding-top: 2rem;
+					align-self: center;
+					width: 160px;
+				}
+				.footer__payoff {
+					text-align: center;
+					padding-top: 2rem;
+					padding-right: 0rem;
+				}
+			}
+			.contact__title,
+			.links__title {
+				-webkit-appearance: none; /* förhindrar browsers default-styling på formulärfält i iphone (youtube-tips)*/
+				font-size: 1.3rem;
+				padding-top: 1.5rem;
+				padding-bottom: 0.5rem;
+			}
+		}
+	}
+
+	/* ------------------------- Media queries: booking.html --------------------------*/
+	.form {
+		display: grid;
+		grid-template-columns: repeat(1, 1fr);
+		padding: 2rem 1rem 3rem 1rem;
+		margin: 2rem 1rem 4rem 1rem;
+		/* border-radius: 0px; */
+
+		.form__button {
+			padding: 1rem 4rem;
+			align-self: center;
+		}
+		.form__input {
+			-webkit-appearance: none; /* förhindrar browsers default-styling på formulärfält i iphone (youtube-tips)*/
+			width: 100%;
+		}
+	}
+	.roomcards {
+		padding: 0rem 1rem 3rem 1rem;
+		.roomcards__item {
+			.roomcards__rating {
+				padding: 0.3rem 0.5rem;
+				position: absolute;
+				right: 1rem;
+				top: 1rem;
+				z-index: 1;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				gap: 0.2rem;
+				.roomcards__rating-text {
+					font-size: 1rem;
+				}
+			}
+			.info {
+				padding: 1rem;
+			}
+			.info__text {
+				font-size: 0.9rem;
+			}
+			.info__sub-title {
+				font-size: 1rem;
+			}
+			.info__tags {
+				flex-wrap: wrap;
+				padding-top: 1rem;
+				gap: 0.5rem;
+
+				.info__tags-item {
+					font-size: 0.8rem;
+				}
+			}
+		}
+	}
+
+	/* ------------------------- Media queries: about.html --------------------------*/
+
+	.about-usp {
+		padding: 1rem 1rem;
+		.about-usp__nav {
+			display: flex;
+
+			.about-usp__menu {
+				justify-content: space-between;
+				margin: 1rem 1rem 3rem 1rem;
+				gap: 1rem;
+				padding-inline-start: 1.5rem;
+
+				.about-usp__link--active {
+					padding: 1rem 1rem;
+				}
+			}
+		}
+
+		.about-usp__card-section {
+			display: flex;
+			flex-direction: column;
+		}
+	}
+	.main__numbers {
 		flex-direction: column;
+		text-align: center;
+		.numbers__title {
+			padding: 2rem 0rem 0rem 0rem;
+		}
+		.numbers__text {
+			border-bottom: 1px solid var(--white);
+			padding: 0rem 0rem 2rem 0rem;
+		}
 	}
-	.roomcards__left {
+
+	/********************************************************************/
+	/**************************** MODIFIERS *****************************/
+	/********************************************************************/
+	.main__text--text-large,
+	.about-usp__text--large {
+		padding-top: 1.5rem;
+		font-size: 1rem;
+		line-height: 1.5rem;
+		letter-spacing: 0px;
 	}
-	.roomcards__image {
-		width: 100%;
+	.hero__link-item--green-bg,
+	.hero__link-item--outlined {
+		padding: 0.8rem 1rem;
+	}
+	.main--gradient-bg {
+		padding: 2rem 2rem 3rem 2rem;
+	}
+	.info__price--green-text {
+		color: var(--dark-green);
+		text-align: right;
+	}
+
+	.hero__content.hero__content--centered {
+		top: 14rem;
 	}
 }
