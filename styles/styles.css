@@ -17,7 +17,6 @@ body {
 }
 
 /* COLORS */
-
 :root {
 	--dark-green: #009966;
 	--medium-green: #88dc84;
@@ -102,7 +101,6 @@ nav > ul {
 }
 
 /* LINK/BUTTON EFFECTS */
-
 button:hover,
 a:hover {
 	transform: scale(1.02);
@@ -131,8 +129,14 @@ button {
 	0% {
 		transform: translateY(0);
 	}
-	10% {
-		transform: translateY(-5px);
+	25% {
+		transform: translateY(-3px);
+	}
+	50% {
+		transform: translateY(0);
+	}
+	80% {
+		transform: translateY(-3px);
 	}
 }
 
@@ -591,6 +595,10 @@ button {
 /********************** MODIFIERS - general *************************/
 /********************************************************************/
 
+.header__logo-link--no-hover:hover {
+	transform: none;
+}
+
 .contact__item--email > a {
 	font-weight: 400;
 	font-size: 1rem;
@@ -920,11 +928,9 @@ button {
 	h3 {
 		font-size: 1.5rem;
 	}
-
 	h4 {
 		font-size: 1.5rem;
 	}
-
 	a {
 		font-size: 1rem;
 	}
@@ -936,7 +942,7 @@ button {
 	.header {
 		position: fixed;
 		width: 100vw;
-		top: 0; /* sticks to the top */
+		top: 0;
 		z-index: 1000;
 		padding: 0rem 1rem;
 		box-shadow: 0 8px 8px -8px rgba(0, 0, 0, 0.5);
@@ -979,7 +985,7 @@ button {
 				position: absolute;
 				z-index: 20;
 				top: 29rem;
-				animation: move 2s ease-out infinite;
+				animation: move 2s infinite;
 			}
 			.hero__arrow-down--displaced {
 				top: 22rem;
@@ -1075,7 +1081,8 @@ button {
 			}
 			.contact__title,
 			.links__title {
-				-webkit-appearance: none; /* förhindrar browsers default-styling på formulärfält i iphone (youtube-tips)*/
+				-webkit-appearance: none;
+				/* förhindrar browsers default-styling på formulärfält i iphone (youtube-tips)*/
 				font-size: 1.3rem;
 				padding-top: 1.5rem;
 				padding-bottom: 0.5rem;
@@ -1089,19 +1096,20 @@ button {
 		grid-template-columns: repeat(1, 1fr);
 		padding: 2rem 1rem 3rem 1rem;
 		margin: 2rem 1rem 4rem 1rem;
-		/* border-radius: 0px; */
 
 		.form__button {
 			padding: 1rem 4rem;
 			align-self: center;
 		}
 		.form__input {
-			-webkit-appearance: none; /* förhindrar browsers default-styling på formulärfält i iphone (youtube-tips)*/
+			-webkit-appearance: none;
+			/* förhindrar browsers default-styling på formulärfält i iphone (youtube-tips)*/
 			width: 100%;
 		}
 	}
 	.roomcards {
 		padding: 0rem 1rem 3rem 1rem;
+
 		.roomcards__item {
 			.roomcards__rating {
 				padding: 0.3rem 0.5rem;
@@ -1141,7 +1149,7 @@ button {
 	/* ------------------------- Media queries: about.html --------------------------*/
 
 	.about-usp {
-		padding: 1rem 1rem;
+		padding: 1rem 1rem 5rem 1rem;
 		.about-usp__nav {
 			display: flex;
 
@@ -1177,6 +1185,7 @@ button {
 	/********************************************************************/
 	/**************************** MODIFIERS *****************************/
 	/********************************************************************/
+
 	.main__text--text-large,
 	.about-usp__text--large {
 		padding-top: 1.5rem;
