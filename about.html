@@ -6,6 +6,11 @@
 			name="viewport"
 			content="width=device-width, initial-scale=1.0"
 		/>
+		<!-- nedan förhindrar att iPhone/Safari visar telefonnummer som svart -->
+		<meta
+			name="format-detection"
+			content="telephone=no"
+		/>
 		<title>About Bonz.ai</title>
 		<link
 			rel="stylesheet"
@@ -36,12 +41,18 @@
 					for="burger"
 					class="header__burger-btn"
 				>
+					<!-- BURGER ICON -->
 					<img
 						class="header__burger-icon"
 						src="./assets/lucide/menu.svg"
 						alt="Menu icon"
 					/>
-					<span></span>
+					<!-- X ICON -->
+					<img
+						class="header__burger-icon-x"
+						src="./assets/lucide/x.svg"
+						alt="Close menu icon"
+					/>
 				</label>
 
 				<!-- HEADER NAV -->
@@ -329,7 +340,7 @@
 
 				<!-- FOOTER BOTOM -->
 				<section class="footer__bottom">
-					<div class="footer__line"></div>
+					<hr class="footer__line" />
 					<p class="footer__copywright">
 						© 2025 Bonz.ai. All rights reserved. Building a sustainable future,
 						one stay at a time.
